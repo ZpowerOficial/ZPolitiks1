@@ -7,10 +7,10 @@ public class SocialPolicy : MonoBehaviour
     public float healthInvestment;
     public float educationInvestment;
     public float povertyRelief;
-    public float minimumWage;
-    public float averageWage;
-    public float maximumWage;
-    public float bolsaFamiliaInvestment;
+    public float minimumWage; // salário mínimo
+    public float averageWage; // mínimo para ser classe média
+    public float maximumWage; // mínimo para ser rico
+    public float bolsaFamiliaInvestment; // bolsa para comprar pobres
 
     private Economy economy;
     

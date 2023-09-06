@@ -13,6 +13,7 @@ public class PopulationIncome : MonoBehaviour
     private float educationInvestment;
     private float technologyLevel;
     private float educationLevel;
+    public float veryLowIncome;
     public float lowIncome;
     public float middleIncome;
     public float highIncome;
@@ -24,10 +25,23 @@ public class PopulationIncome : MonoBehaviour
     void Start()
     {
         economy = GetComponent<Economy>();
-        tax = GetComponent<Tax>();
-        social = GetComponent<SocialPolicy>();
-    }
+        if (economy == null)
+        {
+            Debug.LogError("Componente Economy não encontrado!");
+        }
 
+        tax = GetComponent<Tax>();
+        if (tax == null)
+        {
+            Debug.LogError("Componente Tax não encontrado!");
+        }
+
+        social = GetComponent<SocialPolicy>();
+        if (social == null)
+        {
+            Debug.LogError("Componente SocialPolicy não encontrado!");
+        }
+    }
 
     public void UpdateValues(float povertyRelief, float healthInvestment, float educationInvestment, float technologyLevel, float educationLevel)
     {
@@ -36,27 +50,37 @@ public class PopulationIncome : MonoBehaviour
         this.educationInvestment = educationInvestment;
         this.technologyLevel = technologyLevel;
         this.educationLevel = educationLevel;
-        totalIncome = CalculateIncome();
+
+        if (economy != null && tax != null && social != null)
+        {
+            totalIncome = CalculateIncome();
+        }
+        else
+        {
+            Debug.LogError("Componentes Economy, Tax ou SocialPolicy não foram inicializados corretamente!");
+        }
     }
 
     private float CalculateIncome()
     {
-        lowIncome = 0f;
-        middleIncome = 0f;
-        highIncome = 0f;
-        
+        float diferencaMP;
+        float diferencaRM;
+
+        // Calculando renda dos humildes desempregados
+        veryLowIncome = social.bolsaFamiliaInvestment;
+        veryLowIncome -= tax.salesTax * 0.15f;
+
         // Calculando renda da classe baixa
-        lowIncome = (social.minimumWage * economy.employmentGrowthRate) * (1 - povertyRelief);
+        lowIncome = (social.minimumWage * Random.Range(0.95f,1.19f));
         lowIncome -= (tax.salesTax + tax.incomeTax) * 0.1f;
-        lowIncome += social.bolsaFamiliaInvestment;
+        lowIncome += social.bolsaFamiliaInvestment * 0.15f;
 
         // Calculando renda da classe média
-        middleIncome = (social.averageWage * economy.employmentGrowthRate) * (1 - povertyRelief);
+        middleIncome = (social.minimumWage * Random.Range(1.2f,1.4f));
         middleIncome -= (tax.salesTax + tax.incomeTax) * 0.1f;
-        middleIncome += social.bolsaFamiliaInvestment * 0.5f;
 
         // Calculando renda da classe alta
-        highIncome = (social.maximumWage * economy.employmentGrowthRate) * (1 - povertyRelief);
+        highIncome = (social.maximumWage * Random.Range(1.41f,2f));
         highIncome -= (tax.salesTax + tax.incomeTax) * 0.1f;
         highIncome -= (tax.empresaTax) * 0.1f;
 
@@ -70,6 +94,7 @@ public class PopulationIncome : MonoBehaviour
         basicExpensesmiddle = CalculateBasicExpenses(social.averageWage,middleIncome,technologyLevel,educationLevel);
         basicExpenseshigh = CalculateBasicExpenses(social.maximumWage,highIncome,technologyLevel,educationLevel);
 
+        Debug.Log(basicExpensespoor + " " + basicExpensesmiddle + " " + basicExpensesmiddle);
         // Adicionando gastos com alimentação, passagem, saúde etc
         lowIncome -= basicExpensespoor;
         middleIncome -= basicExpensesmiddle;

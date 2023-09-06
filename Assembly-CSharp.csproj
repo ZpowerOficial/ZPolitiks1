@@ -40,10 +40,12 @@
      <Compile Include="Assets\Scripts\Economy.cs" />
      <Compile Include="Assets\Scripts\SocialPolicy.cs" />
      <Compile Include="Assets\Scripts\TertiarySector.cs" />
+     <Compile Include="Assets\Scripts\Economy.test.cs" />
      <Compile Include="Assets\Scripts\Teste.cs" />
      <Compile Include="Assets\Scripts\Tax.cs" />
      <Compile Include="Assets\Scripts\SecondarySector.cs" />
      <Compile Include="Assets\Scripts\PopulationIncome.cs" />
+     <Compile Include="Assets\Scripts\LifeController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2020.3.44f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

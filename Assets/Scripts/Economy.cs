@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Economy : MonoBehaviour
 {
-    // Pegar as variaveis de cada código dos setores
+    // Códigos
+    private LifeController life;
     private PrimarySector primary;
     private SecondarySector secondary;
     private TertiarySector tertiary;
@@ -42,6 +43,7 @@ public class Economy : MonoBehaviour
     public float oilPrice;
     public float fuelPrice;
     public float purchasingPower;
+    public float growthRate { get; set; }
 
     // Investimentos em infraestrutura
     public float infrastructureInvestment;
@@ -56,12 +58,13 @@ public class Economy : MonoBehaviour
     public float deficit;
     public float phillipsCurve;
 
-    // População, tecnologia, criminalidade, educação
-    private int population;
-    private float technologyLevel;
-    private float educationLevel;
-    private float economicGrowth;
-    private float unemploymentRate;
+    [Header("Leveis de investimento")]
+    public float healthLevel = 5.0f;
+    public float technologyLevel;
+    public float educationLevel;
+    public float crimeRate = 5.0f;
+    public float economicGrowth;
+    public float unemploymentRate;
 
     // Adicione variáveis para rastrear os efeitos das taxas
     private float taxRevenue;
@@ -81,7 +84,7 @@ public class Economy : MonoBehaviour
         tax = GetComponent<Tax>();
         populationIncome = GetComponent<PopulationIncome>();
         social = GetComponent<SocialPolicy>();
-        population = 220000000;
+        life = GetComponent<LifeController>();
         technologyLevel = 50f;
         educationLevel = 40f;
 
@@ -101,7 +104,7 @@ public class Economy : MonoBehaviour
         }
         else
         {
-            mes = 1; ano++;
+            mes = 1; ano++; life.deathPerYear = 0;
         }
         primarySectorGDP = primary.primarySectorGDP;
         secondarySectorGDP = secondary.secondarySectorGDP;
@@ -110,6 +113,8 @@ public class Economy : MonoBehaviour
         // Atualizando os Indicadores Econômicos
         UpdateEconomicIndicators();
         AtualizaGDP();
+        life.Mortalidade();
+        populationIncome.UpdateValues(social.bolsaFamiliaInvestment, social.healthInvestment, social.educationInvestment, technologyLevel, educationLevel);
     }
 
     private void UpdateEconomicIndicators()
@@ -142,6 +147,14 @@ public class Economy : MonoBehaviour
         inflationRate = CalculateInflationRate();
         IncreaseInflation(inflation/12);
         populationIncome.UpdateValues(social.bolsaFamiliaInvestment,social.healthInvestment,social.educationInvestment,technologyLevel,educationLevel);
+    }
+
+    private float CalculateGDPGrowthRate()
+    {
+        // Cálculo da taxa de crescimento do PIB
+        float previousGDP = RetrievePreviousGDP();
+        float currentGDP = RetrieveCurrentGDP();
+        return (currentGDP - previousGDP) / previousGDP;
     }
 
     private float CalculateUnemploymentRate()
@@ -214,19 +227,44 @@ public class Economy : MonoBehaviour
     private float CalculateTradeBalance()
     {
         // Cálculo da Balança Comercial
-        return 0f;
+        float exports = RetrieveExports();
+        float imports = RetrieveImports();
+        return exports - imports;
     }
 
     private float CalculatePaymentBalance()
     {
         // Cálculo da Balança de Pagamentos
-        return 0f;
+        float tradeBalance = CalculateTradeBalance();
+        float interestPayments = CalculateInterestPayments();
+        float foreignAid = RetrieveForeignAid();
+        return tradeBalance + interestPayments + foreignAid;
     }
 
     private float CalculateEmploymentGrowthRate()
     {
         // Cálculo da Taxa de Crescimento do Emprego
-        return 0f;
+        return 0.1f;
+    }
+
+    private float RetrieveCurrentGDP()
+    {
+        // Lógica para recuperar o PIB atual
+        return GDP;
+    }
+
+    private float CalculateInterestPayments()
+    {
+        // Lógica para calcular os pagamentos de juros
+        float interestPayments = 0.13f; // Substitua pelo valor correto
+        return interestPayments;
+    }
+
+    private float RetrieveForeignAid()
+    {
+        // Lógica para recuperar a ajuda externa
+        float foreignAid = 500f; // Substitua pelo valor correto
+        return foreignAid;
     }
 
     private float CalculateOilPrice()
@@ -260,22 +298,62 @@ public class Economy : MonoBehaviour
     private float CalculatePurchasingPower()
     {
         // Cálculo do Poder de Compra
-        return 0f;
+        float disposableIncome = RetrieveDisposableIncome();
+        float priceLevel = CalculatePriceLevel();
+        return disposableIncome / priceLevel;
     }
 
     private float CalculateInfrastructureInvestment()
     {
         // Cálculo dos investimentos em infraestrutura
-        //...
-        return 0f;
+        float GDP = RetrieveGDP();
+        float infrastructureInvestmentRate = 0.1f; // Taxa de investimento em infraestrutura
+        return GDP * infrastructureInvestmentRate;
     }
 
     private float CalculateResearchAndDevelopmentInvestment()
     {
         // Cálculo dos investimentos em P&D
-        //...
-        return 0f;
+        float GDP = RetrieveGDP();
+        float researchAndDevelopmentInvestmentRate = 0.05f; // Taxa de investimento em P&D
+        return GDP * researchAndDevelopmentInvestmentRate;
     }
+
+    private float RetrievePreviousGDP()
+    {
+        // Lógica para recuperar o PIB anterior
+        float previousGDP = 1000f; // Valor de exemplo
+        return previousGDP;
+    }
+    
+    private float CalculatePriceLevel()
+    {
+        // Lógica para calcular o nível de preços
+        float priceLevel = 1.05f; // Valor de exemplo
+        return priceLevel;
+    }
+
+    private float RetrieveGDP()
+    {
+        // Lógica para recuperar o PIB
+        float gdp = 1500f; // Valor de exemplo
+        return gdp;
+    }
+
+    private float RetrieveCurrentPriceLevel()
+    {
+        // Lógica para recuperar o nível de preços atual
+        float currentPriceLevel = 1.15f; // Valor de exemplo
+        return currentPriceLevel;
+    }
+
+    private float RetrievePreviousPriceLevel()
+    {
+        // Lógica para recuperar o nível de preços anterior
+        float previousPriceLevel = 1.02f; // Valor de exemplo
+        return previousPriceLevel;
+    }
+
     private float CalculateTaxRate()
     {
         return tax.taxgeral;
@@ -360,15 +438,13 @@ public class Economy : MonoBehaviour
     {
         //Calculate the private consumption based on the population and the disposable income,
         // taking into account factors such as taxes and inflation
-        return (population/1000000) * RetrieveDisposableIncome() * (1 - tax.taxgeral) / (1 + inflation);
+        return (life.population/1000000) * RetrieveDisposableIncome() * (1 - tax.taxgeral) / (1 + inflation);
     }
 
     // Calcule a receita do governo
     private float CalculateTaxRevenue()
     {
-        float totalPopulation = population;
-
-        return taxRate * totalPopulation * GDP;
+        return taxRate * life.population * GDP;
     }
 
     private float CalculateCurrentInflation()
@@ -377,13 +453,12 @@ public class Economy : MonoBehaviour
         return (currentIPC - lastIPC) / lastIPC;
     }
 
-    // Calcule a inflação
     private float CalculateInflationRate()
     {
-        float previousYearInflation = inflation;
-        float currentYearInflation = CalculateCurrentInflation();
-
-        return currentYearInflation - previousYearInflation;
+        // Cálculo da taxa de inflação
+        float previousPriceLevel = RetrievePreviousPriceLevel();
+        float currentPriceLevel = RetrieveCurrentPriceLevel();
+        return (currentPriceLevel - previousPriceLevel) / previousPriceLevel;
     }
 
 
@@ -456,6 +531,86 @@ public class Economy : MonoBehaviour
         float importPrice = 10 * (1 + inflation) * (importAmount / 500);
 
         return importAmount * importPrice;
+    }
+
+    public void SimulateSupplyShock()
+    {
+        // Lógica para simular um choque de oferta
+        float supplyShockMagnitude = Random.Range(0.1f, 0.5f); // Magnitude do choque de oferta
+        // Atualize os valores afetados pela oferta, como o preço dos produtos e a produção
+        // ...
+    }
+
+    public void SimulateDemandShock()
+    {
+        // Lógica para simular um choque de demanda
+        float demandShockMagnitude = Random.Range(0.1f, 0.5f); // Magnitude do choque de demanda
+        // Atualize os valores afetados pela demanda, como o preço dos produtos e a produção
+        // ...
+    }
+
+    public void ChangeFiscalPolicy(float newTaxRate, float newGovernmentSpending)
+    {
+        // Lógica para alterar a política fiscal
+        // Atualize as variáveis relacionadas à política fiscal, como a taxa de imposto e os gastos do governo
+        this.taxRate = newTaxRate;
+        this.governmentSpending = newGovernmentSpending;
+        // ...
+    }
+
+    public void ChangeInterestRate(float newInterestRate)
+    {
+        // Lógica para alterar a taxa de juros
+        // Atualize a taxa de juros com o novo valor fornecido
+        this.interestRate = newInterestRate;
+        // ...
+    }
+
+    public void SimulateRandomEvent()
+    {
+        int eventId = Random.Range(1, 4); // Número de eventos aleatórios disponíveis
+
+        switch (eventId)
+        {
+            case 1:
+                SimulateFinancialCrisis();
+                break;
+            case 2:
+                SimulateRecession();
+                break;
+            case 3:
+                SimulateEconomicBoom();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void SimulateFinancialCrisis()
+    {
+        // Lógica para simular uma crise financeira
+        // Atualize os valores afetados pela crise financeira, como o crescimento econômico, o desemprego, os investimentos, etc.
+        this.growthRate -= 0.1f;
+        this.unemploymentRate += 0.05f;
+        // ...
+    }
+
+    private void SimulateRecession()
+    {
+        // Lógica para simular uma recessão
+        // Atualize os valores afetados pela recessão, como o crescimento econômico, o desemprego, os investimentos, etc.
+        this.growthRate -= 0.05f;
+        this.unemploymentRate += 0.03f;
+        // ...
+    }
+
+    private void SimulateEconomicBoom()
+    {
+        // Lógica para simular um boom econômico
+        // Atualize os valores afetados pelo boom econômico, como o crescimento econômico, o desemprego, os investimentos, etc.
+        this.growthRate += 0.1f;
+        this.unemploymentRate -= 0.05f;
+        // ...
     }
 
 
