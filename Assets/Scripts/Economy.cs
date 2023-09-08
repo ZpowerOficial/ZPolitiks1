@@ -63,6 +63,7 @@ public class Economy : MonoBehaviour
     public float technologyLevel;
     public float educationLevel;
     public float crimeRate = 5.0f;
+    public float securityRate = 5.0f;
     public float economicGrowth;
     public float unemploymentRate;
 
