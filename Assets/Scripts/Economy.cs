@@ -114,6 +114,7 @@ public class Economy : MonoBehaviour
         // Atualizando os Indicadores Econômicos
         UpdateEconomicIndicators();
         AtualizaGDP();
+        life.AlterarPorcentagensPopulacao();
         life.Mortalidade();
         populationIncome.UpdateValues(social.bolsaFamiliaInvestment, social.healthInvestment, social.educationInvestment, technologyLevel, educationLevel);
     }
