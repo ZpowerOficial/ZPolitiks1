@@ -45,6 +45,24 @@ public class LifeController : MonoBehaviour
     public float lgbt;
     [Range(0f, 1f)]
     public float disable;
+    [Range(0f, 1f)]
+    public float menAprov;
+    [Range(0f, 1f)]
+    public float womenAprov;
+    [Range(0f, 1f)]
+    public float whiteAprov;
+    [Range(0f, 1f)]
+    public float blackAprov;
+    [Range(0f, 1f)]
+    public float otherAprov;
+    [Range(0f, 1f)]
+    public float straightAprov;
+    [Range(0f, 1f)]
+    public float lgbtAprov;
+    [Range(0f, 1f)]
+    public float disableAprov;
+    [Range(0f, 1f)]
+    public float populationAprov;
 
     [Header("Taxas e valores")]
     public float homicidio;
@@ -69,18 +87,29 @@ public class LifeController : MonoBehaviour
         old = 0.098f;
 
         men = 0.491f;
+        menAprov = 0.5f;
         women = 0.509f;
+        womenAprov = 0.5f;
 
         white = 0.428f;
+        whiteAprov = 0.5f;
         black = 0.506f;
+        blackAprov = 0.5f;
         other = 0.066f;
+        otherAprov = 0.5f;
 
         straight = 0.917f;
+        straightAprov = 0.5f;
         lgbt = 0.083f;
+        lgbtAprov = 0.5f;
 
         disable = 0.075f;
+        disableAprov = 0.5f;
+
+        populationAprov = 0.5f;
 
         AlterarPorcentagensPopulacao();
+        economy.Pega();
     }
 
     public void AlterarPorcentagensPopulacao()
@@ -101,6 +130,14 @@ public class LifeController : MonoBehaviour
         straight *= (Random.Range(0.99f, 1.01f));
         lgbt *= (Random.Range(0.99f, 1.01f));
         disable *= (Random.Range(0.99f, 1.01f));
+        menAprov *= (Random.Range(0.99f, 1.01f));
+        womenAprov *= (Random.Range(0.99f, 1.01f));
+        whiteAprov *= (Random.Range(0.99f, 1.01f));
+        blackAprov *= (Random.Range(0.99f, 1.01f));
+        otherAprov *= (Random.Range(0.99f, 1.01f));
+        straightAprov *= (Random.Range(0.99f, 1.01f));
+        lgbtAprov *= (Random.Range(0.99f, 1.01f));
+        disableAprov *= (Random.Range(0.99f, 1.01f));
 
         // Verifique se a soma das variáveis é igual a 1
         float somaPopulacao = baby + teen + adult + old;
@@ -121,6 +158,8 @@ public class LifeController : MonoBehaviour
         straight = Mathf.Round((straight / somaOrientacao) * mult) / mult;
         lgbt = Mathf.Round((lgbt / somaOrientacao) * mult) / mult;
         disable = Mathf.Round((disable / somaOrientacao) * mult) / mult;
+
+        populationAprov = (menAprov*men + womenAprov*women);
 
         DistribuirPopulacao();
     }

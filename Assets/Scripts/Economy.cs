@@ -75,8 +75,10 @@ public class Economy : MonoBehaviour
     public GameObject PopuTxtPrefab;
     public GameObject scrollViewContent;
     private List<int> popuValues;
+    private List<float> popuAprov;
     private List<string> popuText;
     private List<Text> textoElementos = new List<Text>();
+    private List<Slider> sliderAprov = new List<Slider>();
 
     private void Start()
     {
@@ -101,7 +103,10 @@ public class Economy : MonoBehaviour
 
         UpdateEconomicIndicators();
         AtualizaGDP();
+    }
 
+    public void Pega()
+    {
         Vector3 spawnPosition = Vector3.zero; // Posição inicial de spawn
         float yOffset = 0f; // Espaçamento vertical entre os elementos
 
@@ -116,6 +121,18 @@ public class Economy : MonoBehaviour
             life.straightCount,
             life.lgbtCount,
             life.disableCount
+        };
+        popuAprov = new List<float>()
+        {
+            life.populationAprov,
+            life.menAprov,
+            life.womenAprov,
+            life.whiteAprov,
+            life.blackAprov,
+            life.otherAprov,
+            life.straightAprov,
+            life.lgbtAprov,
+            life.disableAprov
         };
         popuText = new List<string>()
         {
@@ -137,9 +154,14 @@ public class Economy : MonoBehaviour
 
             Text[] textosElemento = novoElemento.GetComponentsInChildren<Text>();
             textoElementos.Add(textosElemento[1]); // Adiciona o segundo objeto de texto à lista
-
             textosElemento[0].text = popuText[i]; // Atribui o valor de popuText ao primeiro objeto de texto
             textosElemento[1].text = popuValues[i].ToString(); // Atribui o valor de popuValues ao segundo objeto de texto
+
+            Slider[] slidersArray = novoElemento.GetComponentsInChildren<Slider>();
+            sliderAprov.AddRange(slidersArray);
+            sliderAprov[i].value = popuAprov[i];
+
+            //image = sliderAprov[i].GetComponentInChildren<gameObject>().GetComponentInChildren<Image>();
 
             // Atualize o spawnPosition para a próxima posição
             yOffset -= 55f; // Ajuste esse valor para o espaçamento vertical desejado
@@ -181,10 +203,23 @@ public class Economy : MonoBehaviour
             life.lgbtCount,
             life.disableCount
         };
+        popuAprov = new List<float>()
+        {
+            life.populationAprov,
+            life.menAprov,
+            life.womenAprov,
+            life.whiteAprov,
+            life.blackAprov,
+            life.otherAprov,
+            life.straightAprov,
+            life.lgbtAprov,
+            life.disableAprov
+        };
 
         for (int i = 0; i < popuValues.Count; i++)
         {
             textoElementos[i].text = popuValues[i].ToString();
+            sliderAprov[i].value = popuAprov[i];
         }
     }
 

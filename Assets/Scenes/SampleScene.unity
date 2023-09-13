@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 525183943}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.91311216
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1684,6 +1684,15 @@ MonoBehaviour:
   straight: 0
   lgbt: 0
   disable: 0
+  menAprov: 0
+  womenAprov: 0
+  whiteAprov: 0
+  blackAprov: 0
+  otherAprov: 0
+  straightAprov: 0
+  lgbtAprov: 0
+  disableAprov: 0
+  populationAprov: 0
   homicidio: 0
   bornRate: 0
   bornPerYear: 0
@@ -2149,6 +2158,31 @@ PrefabInstance:
     - target: {fileID: 2212739203096958759, guid: 05fa62e6d3f21044bbebd519fb46f2af,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826821782870371473, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.21176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755605338761408592, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246645743196387991, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246645743196387991, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424489947480713247, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
