@@ -20,7 +20,7 @@ public class Economy : MonoBehaviour
     private float exports;
     private float imports;
 
-    public Text gdpText;
+    public Text popuTxt;
     public int ano = 2023, mes = 1;
 
     // Variável que armazena o PIB total
@@ -72,6 +72,12 @@ public class Economy : MonoBehaviour
     private float economicGrowthRate;
     private float inflationRate;
 
+    public GameObject PopuTxtPrefab;
+    public GameObject scrollViewContent;
+    private List<int> popuValues;
+    private List<string> popuText;
+    private List<Text> textoElementos = new List<Text>();
+
     private void Start()
     {
         tax = GetComponent<Tax>();
@@ -95,6 +101,50 @@ public class Economy : MonoBehaviour
 
         UpdateEconomicIndicators();
         AtualizaGDP();
+
+        Vector3 spawnPosition = Vector3.zero; // Posição inicial de spawn
+        float yOffset = 0f; // Espaçamento vertical entre os elementos
+
+        popuValues = new List<int>()
+        {
+            life.population,
+            life.menCount,
+            life.womenCount,
+            life.whiteCount,
+            life.blackCount,
+            life.otherCount,
+            life.straightCount,
+            life.lgbtCount,
+            life.disableCount
+        };
+        popuText = new List<string>()
+        {
+            "População: ",
+            "Homens: ",
+            "Mulheres: ",
+            "Brancos: ",
+            "Negros: ",
+            "Outros: ",
+            "Heteros: ",
+            "LGBT+: ",
+            "Deficientes: "
+        };
+
+        for (int i = 0; i < popuValues.Count; i++)
+        {
+            GameObject novoElemento = Instantiate(PopuTxtPrefab, scrollViewContent.transform);
+            novoElemento.transform.localPosition = spawnPosition; // Define a posição local do elemento
+
+            Text[] textosElemento = novoElemento.GetComponentsInChildren<Text>();
+            textoElementos.Add(textosElemento[1]); // Adiciona o segundo objeto de texto à lista
+
+            textosElemento[0].text = popuText[i]; // Atribui o valor de popuText ao primeiro objeto de texto
+            textosElemento[1].text = popuValues[i].ToString(); // Atribui o valor de popuValues ao segundo objeto de texto
+
+            // Atualize o spawnPosition para a próxima posição
+            yOffset -= 55f; // Ajuste esse valor para o espaçamento vertical desejado
+            spawnPosition = new Vector3(0f, yOffset, 0f);
+        }
     }
 
     public void AtualizeValues()
@@ -112,11 +162,30 @@ public class Economy : MonoBehaviour
         tertiarySectorGDP = tertiary.tertiarySectorGDP;
 
         // Atualizando os Indicadores Econômicos
-        UpdateEconomicIndicators();
-        AtualizaGDP();
         life.AlterarPorcentagensPopulacao();
         life.Mortalidade();
         populationIncome.UpdateValues(social.bolsaFamiliaInvestment, social.healthInvestment, social.educationInvestment, technologyLevel, educationLevel);
+        UpdateEconomicIndicators();
+        AtualizaGDP();
+
+        // Atualize os valores de popuValues com os novos valores
+        popuValues = new List<int>()
+        {
+            life.population,
+            life.menCount,
+            life.womenCount,
+            life.whiteCount,
+            life.blackCount,
+            life.otherCount,
+            life.straightCount,
+            life.lgbtCount,
+            life.disableCount
+        };
+
+        for (int i = 0; i < popuValues.Count; i++)
+        {
+            textoElementos[i].text = popuValues[i].ToString();
+        }
     }
 
     private void UpdateEconomicIndicators()
@@ -624,6 +693,7 @@ public class Economy : MonoBehaviour
         // Função de transferência não linear
         GDP *= Mathf.Exp(inflation) / (1 + Mathf.Exp(inflation));
         
-        gdpText.text = "Ano: " + mes + "/" + ano + "\nPIB: " + GDP + "\nInflação: " + inflation*100 + "\nJuros: " + interestRate + "\nGasolina: " + fuelPrice + "\nTeto de gastos: " + spendingLimit + "\nGastos: " + governmentSpending + "\nDesemprego: " + unemploymentRate + "\nDinheiro Pobre: " + populationIncome.lowIncome + "\nDinheiro Meio: " + populationIncome.middleIncome + "\nDinheiro Rico: " + populationIncome.highIncome;
+        //gdpText.text = "Ano: " + mes + "/" + ano + "\nPIB: " + GDP + "\nInflação: " + inflation*100 + "\nJuros: " + interestRate + "\nGasolina: " + fuelPrice + "\nTeto de gastos: " + spendingLimit + "\nGastos: " + governmentSpending + "\nDesemprego: " + unemploymentRate + "\nDinheiro Pobre: " + populationIncome.lowIncome + "\nDinheiro Meio: " + populationIncome.middleIncome + "\nDinheiro Rico: " + populationIncome.highIncome;
+        //popuTxt.text = "População: " + life.population + "\nHomens: " + life.menCount;
     }
 }

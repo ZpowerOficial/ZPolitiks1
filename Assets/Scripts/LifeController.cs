@@ -9,8 +9,16 @@ public class LifeController : MonoBehaviour
     private SocialPolicy social;
     private Economy economy;
 
-    // População
+    [Header("População geral")]
     public int population = 220000000;
+    public int menCount;
+    public int womenCount;
+    public int whiteCount;
+    public int blackCount;
+    public int otherCount;
+    public int straightCount;
+    public int lgbtCount;
+    public int disableCount;
 
     [Header("Divisão da população")]
     [Range(0f, 1f)]
@@ -72,26 +80,7 @@ public class LifeController : MonoBehaviour
 
         disable = 0.075f;
 
-        //DistribuirPopulacao();
-    }
-
-    private void DistribuirPopulacao() //base na ia - voltar para olhar
-    {
-        // Calcular a quantidade de cada grupo
-        int menCount = Mathf.RoundToInt(population * men);
-        int womenCount = Mathf.RoundToInt(population * women);
-        int whiteCount = Mathf.RoundToInt(population * white);
-        int blackCount = Mathf.RoundToInt(population * black);
-        int otherCount = Mathf.RoundToInt(population * other);
-        int straightCount = Mathf.RoundToInt(population * straight);
-        int lgbtCount = Mathf.RoundToInt(population * lgbt);
-        int disableCount = Mathf.RoundToInt(population * disable);
-
-        // Dividir a população por faixa etária
-        int babyCount = Mathf.RoundToInt((menCount + womenCount) * baby);
-        int teenCount = Mathf.RoundToInt((menCount + womenCount) * teen);
-        int adultCount = Mathf.RoundToInt((menCount + womenCount) * adult);
-        int oldCount = Mathf.RoundToInt((menCount + womenCount) * old);
+        AlterarPorcentagensPopulacao();
     }
 
     public void AlterarPorcentagensPopulacao()
@@ -100,18 +89,18 @@ public class LifeController : MonoBehaviour
         float mult = Mathf.Pow(10,4);
 
         // Gere valores aleatórios para cada variável dentro da soma total de 1
-        baby *= (Random.Range(0.95f, 1.05f));
-        teen *= (Random.Range(0.95f, 1.05f));
-        adult *= (Random.Range(0.95f, 1.05f));
-        old *= (Random.Range(0.95f, 1.05f));
-        men *= (Random.Range(0.95f, 1.05f));
-        women *= (Random.Range(0.95f, 1.05f));
-        white *= (Random.Range(0.95f, 1.05f));
-        black *= (Random.Range(0.95f, 1.05f));
-        other *= (Random.Range(0.95f, 1.05f));
-        straight *= (Random.Range(0.95f, 1.05f));
-        lgbt *= (Random.Range(0.95f, 1.05f));
-        disable *= (Random.Range(0.95f, 1.05f));
+        baby *= (Random.Range(0.99f, 1.01f));
+        teen *= (Random.Range(0.99f, 1.01f));
+        adult *= (Random.Range(0.99f, 1.01f));
+        old *= (Random.Range(0.99f, 1.01f));
+        men *= (Random.Range(0.99f, 1.01f));
+        women *= (Random.Range(0.99f, 1.01f));
+        white *= (Random.Range(0.99f, 1.01f));
+        black *= (Random.Range(0.99f, 1.01f));
+        other *= (Random.Range(0.99f, 1.01f));
+        straight *= (Random.Range(0.99f, 1.01f));
+        lgbt *= (Random.Range(0.99f, 1.01f));
+        disable *= (Random.Range(0.99f, 1.01f));
 
         // Verifique se a soma das variáveis é igual a 1
         float somaPopulacao = baby + teen + adult + old;
@@ -132,6 +121,27 @@ public class LifeController : MonoBehaviour
         straight = Mathf.Round((straight / somaOrientacao) * mult) / mult;
         lgbt = Mathf.Round((lgbt / somaOrientacao) * mult) / mult;
         disable = Mathf.Round((disable / somaOrientacao) * mult) / mult;
+
+        DistribuirPopulacao();
+    }
+
+    public  void DistribuirPopulacao() //base na ia - voltar para olhar
+    {
+        // Calcular a quantidade de cada grupo
+        menCount = Mathf.RoundToInt(population * men);
+        womenCount = Mathf.RoundToInt(population * women);
+        whiteCount = Mathf.RoundToInt(population * white);
+        blackCount = Mathf.RoundToInt(population * black);
+        otherCount = Mathf.RoundToInt(population * other);
+        straightCount = Mathf.RoundToInt(population * straight);
+        lgbtCount = Mathf.RoundToInt(population * lgbt);
+        disableCount = Mathf.RoundToInt(population * disable);
+
+        // Dividir a população por faixa etária
+        int babyCount = Mathf.RoundToInt((menCount + womenCount) * baby);
+        int teenCount = Mathf.RoundToInt((menCount + womenCount) * teen);
+        int adultCount = Mathf.RoundToInt((menCount + womenCount) * adult);
+        int oldCount = Mathf.RoundToInt((menCount + womenCount) * old);
     }
 
     public void Natalidade()
