@@ -7,24 +7,26 @@ public class MapinhaBrasil : MonoBehaviour
     private LifeController life; // script vida
 
     public RectTransform trans; // trans
-
-    public float escala = 40.0f; // scale
-    public Vector3 mousePosition;
-    public Vector3 dif;
+    public float escala = 35.0f; // scale
+    public Vector3 mouseInitialPosition;
+    public Vector3 mousePoze;
     [SerializeField] private Canvas canvas;
-
-    private void Start()
-    {
-        //Cursor.lockState = CursorLockMode.Confined;
-    }
 
     private void Update()
     {
+        mousePoze = new Vector3(Input.mousePosition.x,Input.mousePosition.y,0); //340x, 700y
         escala += Input.mouseScrollDelta.y;
         escala = Mathf.Clamp(escala,20,100);
 
-        if(Input.mouseScrollDelta.y != 0) ScaleAtualizado();
-        if(Input.GetButton("Fire1")) MexeBrasil();
+        if(mousePoze.x > 340.0f && mousePoze.y < 700.0f)
+        {
+            if(Input.mouseScrollDelta.y != 0)
+                ScaleAtualizado();
+            /*if(Input.GetButtonDown("Fire1"))
+                mouseInitialPosition = Input.mousePosition;*/
+            if(Input.GetButton("Fire1"))
+                MexeBrasil();
+        }
     }
 
     public void ScaleAtualizado()
@@ -34,8 +36,7 @@ public class MapinhaBrasil : MonoBehaviour
 
     public void MexeBrasil()
     {
-        //dif = mousePosition - trans.position;
-        //mousePosition = Camera.main.ScreenToWorldPoint(escala*Input.mousePosition);
-        trans.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, canvas.planeDistance));
+        Vector3 dir = new Vector3(Input.GetAxis("Mouse X"),Input.GetAxis("Mouse Y"),0);
+        trans.position += dir*Mathf.Pow(35,2.086f)*Time.deltaTime;
     }
 }

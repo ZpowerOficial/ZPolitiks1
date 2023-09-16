@@ -112,27 +112,27 @@ public class Economy : MonoBehaviour
 
         popuValues = new List<int>()
         {
-            life.population,
-            life.menCount,
-            life.womenCount,
-            life.whiteCount,
-            life.blackCount,
-            life.otherCount,
-            life.straightCount,
-            life.lgbtCount,
-            life.disableCount
+            life.populationData.count,
+            life.menData.count,
+            life.womenData.count,
+            Mathf.RoundToInt(life.populationData.whiteCount),
+            Mathf.RoundToInt(life.populationData.blackCount),
+            Mathf.RoundToInt(life.populationData.otherCount),
+            Mathf.RoundToInt(life.populationData.straightCount),
+            Mathf.RoundToInt(life.populationData.lgbtCount),
+            Mathf.RoundToInt(life.populationData.disableCount)
         };
         popuAprov = new List<float>()
         {
-            life.populationAprov,
-            life.menAprov,
-            life.womenAprov,
-            life.whiteAprov,
-            life.blackAprov,
-            life.otherAprov,
-            life.straightAprov,
-            life.lgbtAprov,
-            life.disableAprov
+            life.populationData.aprov,
+            life.menData.aprov,
+            life.womenData.aprov,
+            life.populationData.whiteAprov,
+            life.populationData.blackAprov,
+            life.populationData.otherAprov,
+            life.populationData.straightAprov,
+            life.populationData.lgbtAprov,
+            life.populationData.disableAprov
         };
         popuText = new List<string>()
         {
@@ -193,27 +193,27 @@ public class Economy : MonoBehaviour
         // Atualize os valores de popuValues com os novos valores
         popuValues = new List<int>()
         {
-            life.population,
-            life.menCount,
-            life.womenCount,
-            life.whiteCount,
-            life.blackCount,
-            life.otherCount,
-            life.straightCount,
-            life.lgbtCount,
-            life.disableCount
+            life.populationData.count,
+            life.menData.count,
+            life.womenData.count,
+            Mathf.RoundToInt(life.populationData.whiteCount),
+            Mathf.RoundToInt(life.populationData.blackCount),
+            Mathf.RoundToInt(life.populationData.otherCount),
+            Mathf.RoundToInt(life.populationData.straightCount),
+            Mathf.RoundToInt(life.populationData.lgbtCount),
+            Mathf.RoundToInt(life.populationData.disableCount)
         };
         popuAprov = new List<float>()
         {
-            life.populationAprov,
-            life.menAprov,
-            life.womenAprov,
-            life.whiteAprov,
-            life.blackAprov,
-            life.otherAprov,
-            life.straightAprov,
-            life.lgbtAprov,
-            life.disableAprov
+            life.populationData.aprov,
+            life.menData.aprov,
+            life.womenData.aprov,
+            life.populationData.whiteAprov,
+            life.populationData.blackAprov,
+            life.populationData.otherAprov,
+            life.populationData.straightAprov,
+            life.populationData.lgbtAprov,
+            life.populationData.disableAprov
         };
 
         for (int i = 0; i < popuValues.Count; i++)
@@ -544,13 +544,13 @@ public class Economy : MonoBehaviour
     {
         //Calculate the private consumption based on the population and the disposable income,
         // taking into account factors such as taxes and inflation
-        return (life.population/1000000) * RetrieveDisposableIncome() * (1 - tax.taxgeral) / (1 + inflation);
+        return (life.populationData.count/1000000) * RetrieveDisposableIncome() * (1 - tax.taxgeral) / (1 + inflation);
     }
 
     // Calcule a receita do governo
     private float CalculateTaxRevenue()
     {
-        return taxRate * life.population * GDP;
+        return taxRate * life.populationData.count * GDP;
     }
 
     private float CalculateCurrentInflation()
