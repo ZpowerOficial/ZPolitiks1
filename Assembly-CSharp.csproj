@@ -46,6 +46,7 @@
      <Compile Include="Assets\Scripts\SecondarySector.cs" />
      <Compile Include="Assets\Scripts\PopulationIncome.cs" />
      <Compile Include="Assets\Scripts\MapinhaBrasil.cs" />
+     <Compile Include="Assets\Scripts\MapinhaEstados.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2020.3.44f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -638,6 +639,10 @@
       <Project>{32cf1721-2f09-326f-b69c-7fb0fe482b36}</Project>
       <Name>Unity.2D.Tilemap.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="PsdPlugin.csproj">
+      <Project>{0a775125-8e7f-5f50-1c1e-7b8a3ee3ebd3}</Project>
+      <Name>PsdPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
       <Project>{2701e014-70c7-377d-49e8-aa70d7698fb3}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
@@ -661,6 +666,10 @@
     <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
       <Project>{af17d0f1-7d1f-0584-441a-79773227c787}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Psdimporter.Editor.csproj">
+      <Project>{1c2d7c5c-cdf3-4c7c-1745-8df29ebddd9c}</Project>
+      <Name>Unity.2D.Psdimporter.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Path.Editor.csproj">
       <Project>{3cf29ba4-3e53-55d1-8b76-c01e914d7f05}</Project>
@@ -729,14 +738,6 @@
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
       <Project>{ccd5afab-57f1-4454-642c-06d13e30dc0f}</Project>
       <Name>Unity.2D.SpriteShape.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="PsdPlugin.csproj">
-      <Project>{0a775125-8e7f-5f50-1c1e-7b8a3ee3ebd3}</Project>
-      <Name>PsdPlugin</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Psdimporter.Editor.csproj">
-      <Project>{1c2d7c5c-cdf3-4c7c-1745-8df29ebddd9c}</Project>
-      <Name>Unity.2D.Psdimporter.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

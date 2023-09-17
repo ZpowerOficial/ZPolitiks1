@@ -8,10 +8,14 @@ public class MapinhaBrasil : MonoBehaviour
 
     public RectTransform trans; // trans
     public float escala = 35.0f; // scale
-    public Vector3 mouseInitialPosition;
+    public Vector3 initialPos;
     public Vector3 mousePoze;
     [SerializeField] private Canvas canvas;
 
+    private void Start()
+    {
+        initialPos = trans.position;
+    }
     private void Update()
     {
         mousePoze = new Vector3(Input.mousePosition.x,Input.mousePosition.y,0); //340x, 700y
@@ -22,8 +26,8 @@ public class MapinhaBrasil : MonoBehaviour
         {
             if(Input.mouseScrollDelta.y != 0)
                 ScaleAtualizado();
-            /*if(Input.GetButtonDown("Fire1"))
-                mouseInitialPosition = Input.mousePosition;*/
+            if(Input.GetButtonDown("Fire2"))
+                trans.position = initialPos;
             if(Input.GetButton("Fire1"))
                 MexeBrasil();
         }

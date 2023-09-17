@@ -7,6 +7,7 @@ public class Economy : MonoBehaviour
 {
     // Códigos
     private LifeController life;
+    public MapinhaEstados mapa;
     private PrimarySector primary;
     private SecondarySector secondary;
     private TertiarySector tertiary;
@@ -20,7 +21,7 @@ public class Economy : MonoBehaviour
     private float exports;
     private float imports;
 
-    public Text popuTxt;
+    public Text anoTxt;
     public int ano = 2023, mes = 1;
 
     // Variável que armazena o PIB total
@@ -167,6 +168,7 @@ public class Economy : MonoBehaviour
             yOffset -= 55f; // Ajuste esse valor para o espaçamento vertical desejado
             spawnPosition = new Vector3(0f, yOffset, 0f);
         }
+        mapa.Mudar();
     }
 
     public void AtualizeValues()
@@ -221,6 +223,7 @@ public class Economy : MonoBehaviour
             textoElementos[i].text = popuValues[i].ToString();
             sliderAprov[i].value = popuAprov[i];
         }
+        mapa.Mudar();
     }
 
     private void UpdateEconomicIndicators()
@@ -728,6 +731,7 @@ public class Economy : MonoBehaviour
         // Função de transferência não linear
         GDP *= Mathf.Exp(inflation) / (1 + Mathf.Exp(inflation));
         
+        anoTxt.text = mes + "/" + ano;
         //gdpText.text = "Ano: " + mes + "/" + ano + "\nPIB: " + GDP + "\nInflação: " + inflation*100 + "\nJuros: " + interestRate + "\nGasolina: " + fuelPrice + "\nTeto de gastos: " + spendingLimit + "\nGastos: " + governmentSpending + "\nDesemprego: " + unemploymentRate + "\nDinheiro Pobre: " + populationIncome.lowIncome + "\nDinheiro Meio: " + populationIncome.middleIncome + "\nDinheiro Rico: " + populationIncome.highIncome;
         //popuTxt.text = "População: " + life.population + "\nHomens: " + life.menCount;
     }

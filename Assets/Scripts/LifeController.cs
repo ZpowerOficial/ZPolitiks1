@@ -41,8 +41,7 @@ public class PopulationData
     public float disableCount;
     [Range(0f,1f)]
     public float disableAprov;
-    
-    
+        
     public PopulationData(float porcen, int count, float aprov, float white, int whiteCount, float whiteAprov, float black, int blackCount, float blackAprov, float other, int otherCount, float otherAprov, float straight, int straightCount, float straightAprov, float lgbt, int lgbtCount, float lgbtAprov, float disable, int disableCount, float disableAprov)
     {
         this.porcen = porcen;
@@ -66,7 +65,6 @@ public class PopulationData
         this.disable = disable;
         this.disableCount = disableCount;
         this.disableAprov = disableAprov;
-        
     }
 
     public void AjustarSubdiv()
@@ -116,6 +114,10 @@ public class LifeController : MonoBehaviour
     public float migracao;
     public float imigracao;
 
+    public List<float> estados;
+    public List<float> estadosCount;
+    public List<float> estadosAprov;
+
     private void Start()
     {
         economy = GetComponent<Economy>();
@@ -134,6 +136,42 @@ public class LifeController : MonoBehaviour
         menData.AjustarSubdiv();
         womenData = new PopulationData(0.509f,0,0.5f,0.218f/0.509f,Mathf.RoundToInt((0.218f/0.509f)*111980000),0.5f,0.258f/0.509f,Mathf.RoundToInt((0.258f/0.509f)*111980000),0.5f,0.034f/0.509f,Mathf.RoundToInt((0.034f/0.509f)*111980000),0.5f,0.467f/0.509f,Mathf.RoundToInt((0.467f/0.509f)*111980000),0.5f,0.042f/0.509f,Mathf.RoundToInt((0.042f/0.509f)*111980000),0.5f,0.038f/0.509f,Mathf.RoundToInt((0.038f/0.509f)*111980000),0.5f);
         womenData.AjustarSubdiv();
+
+        estados = new List<float>()
+        {
+            0.219f,
+            0.101f,
+            0.079f,
+            0.070f,
+            0.056f,
+            0.054f,
+            0.045f,
+            0.043f,
+            0.041f,
+            0.038f,
+            0.035f,
+            0.033f,
+            0.020f,
+            0.019f,
+            0.019f,
+            0.018f,
+            0.016f,
+            0.016f,
+            0.015f,
+            0.014f,
+            0.014f,
+            0.011f,
+            0.008f,
+            0.007f,
+            0.004f,
+            0.004f,
+            0.003f
+        };
+
+        for(int i = 0; i < estados.Count; i++)
+            estadosCount.Add(Mathf.RoundToInt(populationData.count*estados[i]));
+        for(int i = 0; i < estados.Count; i++)
+            estadosAprov.Add(0.5f);
 
         AlterarPorcentagensPopulacao();
         economy.Pega(); // popularidade na lateral
