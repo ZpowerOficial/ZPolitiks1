@@ -322,7 +322,6 @@ GameObject:
   - component: {fileID: 154691818}
   - component: {fileID: 154691817}
   - component: {fileID: 154691816}
-  - component: {fileID: 154691819}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -402,62 +401,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154691814}
   m_CullTransparentMesh: 1
---- !u!114 &154691819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154691814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 154691817}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1381500970}
-        m_TargetAssemblyTypeName: MapinhaEstados, Assembly-CSharp
-        m_MethodName: Nacional
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &196994549
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +499,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 259887511}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1381500970}
+        m_TargetAssemblyTypeName: MapinhaEstados, Assembly-CSharp
+        m_MethodName: Nacional
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &259887511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,7 +1400,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 525183943}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.91311216
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1527,7 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09722d147653811459d58c1760881e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapa: {fileID: 0}
+  mapa: {fileID: 1381500970}
   anoTxt: {fileID: 795304913}
   ano: 2023
   mes: 1
@@ -1806,33 +1761,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visu: {fileID: 259887509}
   visuEstado:
-  - {fileID: 8990417438453812303}
-  - {fileID: 4223083699263991187}
-  - {fileID: 5127319752381867736}
-  - {fileID: 1493392238727123274}
-  - {fileID: 3427796667898889235}
-  - {fileID: 15276850290910852}
-  - {fileID: 3127021087758808399}
-  - {fileID: 8237028081255686196}
-  - {fileID: 3435866653379059335}
-  - {fileID: 3902229294937306421}
-  - {fileID: 1084068385494641569}
-  - {fileID: 1826711825518966535}
-  - {fileID: 3194840681081864073}
-  - {fileID: 21839253574862110}
+  - {fileID: 8985108819291899222}
   - {fileID: 6213041829217124847}
+  - {fileID: 332150339794692303}
+  - {fileID: 3194840681081864073}
+  - {fileID: 1546000282843484818}
+  - {fileID: 1650019669309232044}
+  - {fileID: 4796381501465677728}
+  - {fileID: 3127021087758808399}
+  - {fileID: 5127319752381867736}
+  - {fileID: 8880299355407783732}
+  - {fileID: 1084068385494641569}
+  - {fileID: 3427796667898889235}
+  - {fileID: 8898979095775392974}
+  - {fileID: 8990417438453812303}
+  - {fileID: 21839253574862110}
+  - {fileID: 3902229294937306421}
+  - {fileID: 2937022443982737352}
+  - {fileID: 15276850290910852}
+  - {fileID: 9167597183916544363}
   - {fileID: 6942346072137490731}
   - {fileID: 8387762378763018879}
-  - {fileID: 8985108819291899222}
-  - {fileID: 332150339794692303}
   - {fileID: 8502759269947576045}
-  - {fileID: 9167597183916544363}
-  - {fileID: 4796381501465677728}
-  - {fileID: 8898979095775392974}
-  - {fileID: 2937022443982737352}
-  - {fileID: 1546000282843484818}
-  - {fileID: 8880299355407783732}
-  - {fileID: 1650019669309232044}
+  - {fileID: 3435866653379059335}
+  - {fileID: 1826711825518966535}
+  - {fileID: 8237028081255686196}
+  - {fileID: 1493392238727123274}
+  - {fileID: 4223083699263991187}
   life: {fileID: 1381500968}
   ver: 0
 --- !u!1 &1750261039
@@ -2076,7 +2031,7 @@ GameObject:
   - component: {fileID: 15276850290910854}
   - component: {fileID: 15276850290910856}
   m_Layer: 0
-  m_Name: Camada 7
+  m_Name: Piaui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2114,7 +2069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2197,7 +2152,7 @@ GameObject:
   - component: {fileID: 21839253574862112}
   - component: {fileID: 21839253574862114}
   m_Layer: 0
-  m_Name: Camada 15
+  m_Name: EspiritoSanto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2235,7 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2317,7 +2272,7 @@ GameObject:
   - component: {fileID: 332150339794692305}
   - component: {fileID: 332150339794692307}
   m_Layer: 0
-  m_Name: Camada 20
+  m_Name: RioJaneiro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2355,7 +2310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2438,7 +2393,7 @@ GameObject:
   - component: {fileID: 1084068385494641571}
   - component: {fileID: 1084068385494641573}
   m_Layer: 0
-  m_Name: Camada 12
+  m_Name: Goias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2476,7 +2431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2559,7 +2514,7 @@ GameObject:
   - component: {fileID: 1493392238727123276}
   - component: {fileID: 1493392238727123278}
   m_Layer: 0
-  m_Name: Camada 5
+  m_Name: Amapa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2597,7 +2552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2680,7 +2635,7 @@ GameObject:
   - component: {fileID: 1546000282843484820}
   - component: {fileID: 1546000282843484822}
   m_Layer: 0
-  m_Name: Camada 26
+  m_Name: Parana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2718,7 +2673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2801,7 +2756,7 @@ GameObject:
   - component: {fileID: 1650019669309232046}
   - component: {fileID: 1650019669309232048}
   m_Layer: 0
-  m_Name: Camada 28
+  m_Name: RioGrandeSul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2839,7 +2794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2922,7 +2877,7 @@ GameObject:
   - component: {fileID: 1826711825518966537}
   - component: {fileID: 1826711825518966539}
   m_Layer: 0
-  m_Name: Camada 13
+  m_Name: Tocantins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2960,7 +2915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3037,10 +2992,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2061133871}
     m_Modifications:
+    - target: {fileID: 448682536179290792, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448682536179290792, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448682536179290792, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 831330828496707057, guid: 05fa62e6d3f21044bbebd519fb46f2af,
         type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182548953000004254, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182548953000004254, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_renderer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182548953000004254, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 2182548953000004254, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182548953000004254, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_fontSizeMin
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182548953000004254, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_enableKerning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182548953000004254, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2182548953000004254, guid: 05fa62e6d3f21044bbebd519fb46f2af,
+        type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2212739202194172779, guid: 05fa62e6d3f21044bbebd519fb46f2af,
         type: 3}
@@ -3212,7 +3223,7 @@ GameObject:
   - component: {fileID: 2937022443982737354}
   - component: {fileID: 2937022443982737356}
   m_Layer: 0
-  m_Name: Camada 25
+  m_Name: RioGrandeNorte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3250,7 +3261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3333,7 +3344,7 @@ GameObject:
   - component: {fileID: 3127021087758808401}
   - component: {fileID: 3127021087758808403}
   m_Layer: 0
-  m_Name: Camada 8
+  m_Name: Ceara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3371,7 +3382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3454,7 +3465,7 @@ GameObject:
   - component: {fileID: 3194840681081864075}
   - component: {fileID: 3194840681081864077}
   m_Layer: 0
-  m_Name: Camada 14
+  m_Name: Bahia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3492,7 +3503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3575,7 +3586,7 @@ GameObject:
   - component: {fileID: 3427796667898889237}
   - component: {fileID: 3427796667898889239}
   m_Layer: 0
-  m_Name: Camada 6
+  m_Name: Maranhao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3613,7 +3624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3696,7 +3707,7 @@ GameObject:
   - component: {fileID: 3435866653379059337}
   - component: {fileID: 3435866653379059339}
   m_Layer: 0
-  m_Name: Camada 10
+  m_Name: Rondonia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3734,7 +3745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3816,7 +3827,7 @@ GameObject:
   - component: {fileID: 3902229294937306423}
   - component: {fileID: 3902229294937306425}
   m_Layer: 0
-  m_Name: Camada 11
+  m_Name: MatoGrosso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3854,7 +3865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3937,7 +3948,7 @@ GameObject:
   - component: {fileID: 4223083699263991189}
   - component: {fileID: 4223083699263991191}
   m_Layer: 0
-  m_Name: Camada 3
+  m_Name: Roraima
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3975,7 +3986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4057,7 +4068,7 @@ GameObject:
   - component: {fileID: 4796381501465677730}
   - component: {fileID: 4796381501465677732}
   m_Layer: 0
-  m_Name: Camada 23
+  m_Name: Pernambuco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4095,7 +4106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4178,7 +4189,7 @@ GameObject:
   - component: {fileID: 5127319752381867738}
   - component: {fileID: 5127319752381867740}
   m_Layer: 0
-  m_Name: Camada 4
+  m_Name: Para
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4216,7 +4227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4335,7 +4346,7 @@ GameObject:
   - component: {fileID: 6213041829217124849}
   - component: {fileID: 6213041829217124851}
   m_Layer: 0
-  m_Name: Camada 16
+  m_Name: MinasGerais
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4373,7 +4384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4456,7 +4467,7 @@ GameObject:
   - component: {fileID: 6942346072137490733}
   - component: {fileID: 6942346072137490735}
   m_Layer: 0
-  m_Name: Camada 17
+  m_Name: Brasilia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4494,7 +4505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4680,7 +4691,7 @@ GameObject:
   - component: {fileID: 8237028081255686198}
   - component: {fileID: 8237028081255686200}
   m_Layer: 0
-  m_Name: Camada 9
+  m_Name: Acre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4718,7 +4729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4801,7 +4812,7 @@ GameObject:
   - component: {fileID: 8387762378763018881}
   - component: {fileID: 8387762378763018883}
   m_Layer: 0
-  m_Name: Camada 18
+  m_Name: MatoGrossoSul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4839,7 +4850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4922,7 +4933,7 @@ GameObject:
   - component: {fileID: 8502759269947576047}
   - component: {fileID: 8502759269947576049}
   m_Layer: 0
-  m_Name: Camada 21
+  m_Name: Sergipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4960,7 +4971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5043,7 +5054,7 @@ GameObject:
   - component: {fileID: 8880299355407783734}
   - component: {fileID: 8880299355407783736}
   m_Layer: 0
-  m_Name: Camada 27
+  m_Name: SantaCatarina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5081,7 +5092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5164,7 +5175,7 @@ GameObject:
   - component: {fileID: 8898979095775392976}
   - component: {fileID: 8898979095775392978}
   m_Layer: 0
-  m_Name: Camada 24
+  m_Name: Paraiba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5202,7 +5213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5285,7 +5296,7 @@ GameObject:
   - component: {fileID: 8985108819291899224}
   - component: {fileID: 8985108819291899226}
   m_Layer: 0
-  m_Name: Camada 19
+  m_Name: SaoPaulo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5323,7 +5334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5406,7 +5417,7 @@ GameObject:
   - component: {fileID: 8990417438453812305}
   - component: {fileID: 8990417438453812307}
   m_Layer: 0
-  m_Name: Camada 2
+  m_Name: Amazonas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5444,7 +5455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.69803923, g: 0, b: 0.10649502, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5527,7 +5538,7 @@ GameObject:
   - component: {fileID: 9167597183916544365}
   - component: {fileID: 9167597183916544367}
   m_Layer: 0
-  m_Name: Camada 22
+  m_Name: Alagoas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5565,7 +5576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

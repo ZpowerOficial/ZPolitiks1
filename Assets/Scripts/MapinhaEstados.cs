@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapinhaEstados : MonoBehaviour
 {
@@ -23,10 +24,10 @@ public class MapinhaEstados : MonoBehaviour
     {
         for(int i = 0; i < visuEstado.Count; i++)
         {
-            SpriteRenderer spriteRenderer = visuEstado[i].GetComponent<SpriteRenderer>();
-            if(ver == 0) spriteRenderer.color = new Color(spriteRenderer.color.r, life.populationData.aprov, spriteRenderer.color.b);
-            if(ver == 1) spriteRenderer.color = new Color(spriteRenderer.color.r, life.estados[i], spriteRenderer.color.b);
-            if(ver == 2) spriteRenderer.color = new Color(spriteRenderer.color.r, life.estadosAprov[i], spriteRenderer.color.b);
+            Image imagem = visuEstado[i].GetComponent<Image>();
+            if(ver == 0) imagem.color = new Color(0.6f, life.populationData.aprov, 0.0f);
+            if(ver == 1) imagem.color = new Color(0.6f, life.estados[i], 0.0f);
+            if(ver == 2) imagem.color = new Color(0.6f, life.estadosAprov[i], 0.0f);
         }
     }
 }

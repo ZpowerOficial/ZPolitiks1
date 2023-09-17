@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Economy : MonoBehaviour
 {
@@ -78,8 +79,9 @@ public class Economy : MonoBehaviour
     private List<int> popuValues;
     private List<float> popuAprov;
     private List<string> popuText;
-    private List<Text> textoElementos = new List<Text>();
+    private List<TMP_Text> textoElementos = new List<TMP_Text>();
     private List<Slider> sliderAprov = new List<Slider>();
+    private List<Image> imagesArrayF = new List<Image>();
 
     private void Start()
     {
@@ -153,7 +155,7 @@ public class Economy : MonoBehaviour
             GameObject novoElemento = Instantiate(PopuTxtPrefab, scrollViewContent.transform);
             novoElemento.transform.localPosition = spawnPosition; // Define a posição local do elemento
 
-            Text[] textosElemento = novoElemento.GetComponentsInChildren<Text>();
+            TMP_Text[] textosElemento = novoElemento.GetComponentsInChildren<TMP_Text>();
             textoElementos.Add(textosElemento[1]); // Adiciona o segundo objeto de texto à lista
             textosElemento[0].text = popuText[i]; // Atribui o valor de popuText ao primeiro objeto de texto
             textosElemento[1].text = popuValues[i].ToString(); // Atribui o valor de popuValues ao segundo objeto de texto
@@ -161,6 +163,9 @@ public class Economy : MonoBehaviour
             Slider[] slidersArray = novoElemento.GetComponentsInChildren<Slider>();
             sliderAprov.AddRange(slidersArray);
             sliderAprov[i].value = popuAprov[i];
+            Image[] imagesArray = novoElemento.GetComponentsInChildren<Image>();
+            imagesArrayF.AddRange(imagesArray);
+            imagesArrayF[i].color = new Color(0.6f, popuAprov[i], 0.0f);
 
             //image = sliderAprov[i].GetComponentInChildren<gameObject>().GetComponentInChildren<Image>();
 
@@ -222,6 +227,7 @@ public class Economy : MonoBehaviour
         {
             textoElementos[i].text = popuValues[i].ToString();
             sliderAprov[i].value = popuAprov[i];
+            imagesArrayF[i].color = new Color(0.6f, popuAprov[i], 0.0f);
         }
         mapa.Mudar();
     }

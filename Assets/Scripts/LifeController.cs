@@ -206,6 +206,15 @@ public class LifeController : MonoBehaviour
 
         populationData.aprov = (menData.aprov*menData.porcen + womenData.aprov*womenData.porcen);
 
+        float somaEs = 0;
+        for(int i = 0; i < estados.Count; i++)
+        {
+            estados[i] *= (Random.Range(0.99f, 1.01f));
+            somaEs += estados[i];
+        }
+        for(int i = 0; i < estados.Count; i++)
+            estados[i] /= somaEs;
+
         DistribuirPopulacao();
     }
 
