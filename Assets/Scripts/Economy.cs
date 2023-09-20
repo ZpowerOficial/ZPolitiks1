@@ -123,7 +123,10 @@ public class Economy : MonoBehaviour
             Mathf.RoundToInt(life.populationData.otherCount),
             Mathf.RoundToInt(life.populationData.straightCount),
             Mathf.RoundToInt(life.populationData.lgbtCount),
-            Mathf.RoundToInt(life.populationData.disableCount)
+            Mathf.RoundToInt(life.populationData.disableCount),
+            Mathf.RoundToInt(life.populationData.christianCount),
+            Mathf.RoundToInt(life.populationData.otherReligionCount),
+            Mathf.RoundToInt(life.populationData.atheismCount)
         };
         popuAprov = new List<float>()
         {
@@ -135,7 +138,10 @@ public class Economy : MonoBehaviour
             life.populationData.otherAprov,
             life.populationData.straightAprov,
             life.populationData.lgbtAprov,
-            life.populationData.disableAprov
+            life.populationData.disableAprov,
+            life.populationData.christianAprov,
+            life.populationData.otherReligionAprov,
+            life.populationData.atheismAprov
         };
         popuText = new List<string>()
         {
@@ -144,10 +150,13 @@ public class Economy : MonoBehaviour
             "Mulheres: ",
             "Brancos: ",
             "Negros: ",
-            "Outros: ",
+            "Raças+: ",
             "Heteros: ",
             "LGBT+: ",
-            "Deficientes: "
+            "Deficientes: ",
+            "Cristãos: ",
+            "Religiões+: ",
+            "Ateus: "
         };
 
         for (int i = 0; i < popuValues.Count; i++)
@@ -170,7 +179,7 @@ public class Economy : MonoBehaviour
             //image = sliderAprov[i].GetComponentInChildren<gameObject>().GetComponentInChildren<Image>();
 
             // Atualize o spawnPosition para a próxima posição
-            yOffset -= 55f; // Ajuste esse valor para o espaçamento vertical desejado
+            yOffset -= 40f; // Ajuste esse valor para o espaçamento vertical desejado
             spawnPosition = new Vector3(0f, yOffset, 0f);
         }
         mapa.Mudar();
@@ -208,7 +217,10 @@ public class Economy : MonoBehaviour
             Mathf.RoundToInt(life.populationData.otherCount),
             Mathf.RoundToInt(life.populationData.straightCount),
             Mathf.RoundToInt(life.populationData.lgbtCount),
-            Mathf.RoundToInt(life.populationData.disableCount)
+            Mathf.RoundToInt(life.populationData.disableCount),
+            Mathf.RoundToInt(life.populationData.christianCount),
+            Mathf.RoundToInt(life.populationData.otherReligionCount),
+            Mathf.RoundToInt(life.populationData.atheismCount)
         };
         popuAprov = new List<float>()
         {
@@ -220,7 +232,10 @@ public class Economy : MonoBehaviour
             life.populationData.otherAprov,
             life.populationData.straightAprov,
             life.populationData.lgbtAprov,
-            life.populationData.disableAprov
+            life.populationData.disableAprov,
+            life.populationData.christianAprov,
+            life.populationData.otherReligionAprov,
+            life.populationData.atheismAprov
         };
 
         for (int i = 0; i < popuValues.Count; i++)

@@ -1400,7 +1400,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 525183943}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.91311216
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1672,6 +1672,15 @@ MonoBehaviour:
     disable: 0
     disableCount: 0
     disableAprov: 0
+    christian: 0
+    christianCount: 0
+    christianAprov: 0
+    otherReligion: 0
+    otherReligionCount: 0
+    otherReligionAprov: 0
+    atheism: 0
+    atheismCount: 0
+    atheismAprov: 0
   menData:
     porcen: 0
     count: 0
@@ -1694,6 +1703,15 @@ MonoBehaviour:
     disable: 0
     disableCount: 0
     disableAprov: 0
+    christian: 0
+    christianCount: 0
+    christianAprov: 0
+    otherReligion: 0
+    otherReligionCount: 0
+    otherReligionAprov: 0
+    atheism: 0
+    atheismCount: 0
+    atheismAprov: 0
   womenData:
     porcen: 0
     count: 0
@@ -1716,6 +1734,15 @@ MonoBehaviour:
     disable: 0
     disableCount: 0
     disableAprov: 0
+    christian: 0
+    christianCount: 0
+    christianAprov: 0
+    otherReligion: 0
+    otherReligionCount: 0
+    otherReligionAprov: 0
+    atheism: 0
+    atheismCount: 0
+    atheismAprov: 0
   baby: 0
   teen: 0
   adult: 0
@@ -3121,7 +3148,7 @@ PrefabInstance:
     - target: {fileID: 2212739203096958759, guid: 05fa62e6d3f21044bbebd519fb46f2af,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2212739203096958759, guid: 05fa62e6d3f21044bbebd519fb46f2af,
         type: 3}
@@ -3166,7 +3193,7 @@ PrefabInstance:
     - target: {fileID: 2212739203096958759, guid: 05fa62e6d3f21044bbebd519fb46f2af,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000011444092
+      value: 0.0000038146973
       objectReference: {fileID: 0}
     - target: {fileID: 2212739203096958759, guid: 05fa62e6d3f21044bbebd519fb46f2af,
         type: 3}
